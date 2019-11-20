@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/create">Create</router-link>|
-      <router-link to="/quizzez">Quizzez</router-link>
-    </div>
     <router-view />
   </div>
 </template>
@@ -31,3 +26,12 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  created() {
+    this.$store.dispatch('fetchQ')
+    this.$store.dispatch('fetchA')
+  }
+}
+</script>

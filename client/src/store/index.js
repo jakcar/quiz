@@ -6,29 +6,27 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    questions: [],
-    answers: []
+    quiz: [],
+    questions: []
   },
-  mutations: {
-  },
+  mutations: {},
   actions: {
-    fetchQ() {
-      axios.get('http://localhost:3000/questions')
-      .then((response) =>  {
-        // eslint-disable-next-line no-console
-        console.log(response.data)
-        this.state.questions = response.data
-      })
+    fetchQuiz() {
+      axios.get('http://localhost:3000/quiz')
+        .then((response) => {
+          // eslint-disable-next-line no-console
+          console.log(response.data)
+          this.state.quiz = response.data
+        })
     },
-    fetchA() {
-      axios.get('http://localhost:3000/answers')
-      .then((response) =>  {
-        // eslint-disable-next-line no-console
-        console.log(response.data)
-        this.state.answers = response.data
-      })
+    fetchQuestions() {
+      axios.get('http://localhost:3000/questions')
+        .then((response) => {
+          // eslint-disable-next-line no-console
+          console.log(response.data)
+          this.state.questions = response.data
+        })
     }
   },
-  modules: {
-  }
+  modules: {}
 })

@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     quiz: [],
-    questions: []
+    questions: [],
+    testquiz: []
   },
   mutations: {},
   actions: {
@@ -25,6 +26,12 @@ export default new Vuex.Store({
           // eslint-disable-next-line no-console
           console.log(response.data)
           this.state.questions = response.data
+        })
+    },
+    fetchTestquiz() {
+      axios.get('http://localhost:3000/testquiz')
+        .then((response) => {
+          this.state.testquiz = response.data
         })
     }
   },

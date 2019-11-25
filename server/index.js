@@ -42,13 +42,15 @@ app.post('/questions', (req, res) => {
 })
 
 app.post('/', (req, res) => {
+  console.log(req.body)
+  // res.send(req.body)
   database.run('INSERT INTO testquiz (quizname) VALUES (?)', [req.body.quizname])
-    .then(statement => { 
+    .then(statement => {
       const promises = []
       const id = statement.lastID
       for (let n = 0; n < req.body.questions.length; n++) {
         const promise = database.run(
-          'INSERT INTO testquestions (question, a1, a2, a3, a4, group_id, rightanswer) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+          'INSERT INTO testquestions (question, a1, a2, a3, a4, group_id, rightanswer) VALUES (?, ?, ?, ?, ?, ?, ?)',
           [req.body.questions[n].question, req.body.questions[n].a1, req.body.questions[n].a2, req.body.questions[n].a3, req.body.questions[n].a4, id, req.body.questions[n].rightanswer]
         )
         promises.push(promise)

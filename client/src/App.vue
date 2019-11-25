@@ -30,8 +30,6 @@
 <script>
 export default {
   created() {
-    this.$store.dispatch("fetchQuiz")
-    this.$store.dispatch("fetchQuestions")
     this.$store.dispatch("fetchTestquiz")
   }
 }

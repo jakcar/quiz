@@ -8,30 +8,30 @@ export default new Vuex.Store({
   state: {
     quiz: [],
     questions: [],
-    testquiz: []
+    testquiz: [],
+    newQuiz: []
   },
-  mutations: {},
+  mutations: {
+
+  },
   actions: {
-    fetchQuiz() {
-      axios.get('http://localhost:3000/quiz')
-        .then((response) => {
-          // eslint-disable-next-line no-console
-          console.log(response.data)
-          this.state.quiz = response.data
-        })
-    },
-    fetchQuestions() {
-      axios.get('http://localhost:3000/questions')
-        .then((response) => {
-          // eslint-disable-next-line no-console
-          console.log(response.data)
-          this.state.questions = response.data
-        })
-    },
     fetchTestquiz() {
       axios.get('http://localhost:3000/testquiz')
         .then((response) => {
           this.state.testquiz = response.data
+        })
+    },
+    postQuiz(context, payload) {
+      axios.post('http://localhost:3000/',
+          payload
+        )
+        .then((response) => {
+          // eslint-disable-next-line no-console
+          console.log(response)
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error)
         })
     }
   },

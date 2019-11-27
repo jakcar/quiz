@@ -13,34 +13,6 @@ sqlite.open('test.sqlite').then(database_ => {
   database = database_
 })
 
-app.get('/quiz', (req, res) => {
-  database.all('SELECT * FROM quiz').then(quiz => {
-    res.send(quiz)
-  })
-})
-
-app.get('/questions', (req, res) => {
-  database.all('SELECT * FROM questions').then(questions => {
-    res.send(questions)
-  })
-})
-
-app.post('/quiz', (req, res) => {
-  database
-    .run('INSERT INTO quiz VALUES (?, ?)', [req.body.name, req.body.ID])
-    .then(quiz => {
-      res.send(quiz)
-    })
-})
-
-app.post('/questions', (req, res) => {
-  database
-    .run('INSERT INTO questions VALUES (?, ?, ?, ?, ?, ?, ?)', [req.body.question, req.body.a1, req.body.a2, req.body.a3, req.body.a4, req.body.ID, req.body.rightanswer])
-    .then(questions => {
-      res.send(questions)
-    })
-})
-
 app.post('/', (req, res) => {
   console.log(req.body)
   // res.send(req.body)
@@ -61,8 +33,26 @@ app.post('/', (req, res) => {
     })
 })
 
+// app.get('/testquiz', (req, res) => {
+//   database.all('SELECT * FROM testquiz INNER JOIN testquestions on testquestions.group_id = testquiz.group_id').then(testquiz => {
+//     res.send(testquiz)
+//   })
+// })
+
 app.get('/testquiz', (req, res) => {
   database.all('SELECT * FROM testquiz INNER JOIN testquestions on testquestions.group_id = testquiz.group_id').then(testquiz => {
+    const o = {}
+    for (let n = 0; n < testquiz.length; n++) {
+      if (o[testquiz[n].quizname] === undefined) {
+        o[testquiz[n].quizname] = 1
+        const test = []
+        o[testquiz[n].quizname] = test
+      } else {
+        o[testquiz[n].quizname].push({ apa: testquiz[n].question })
+      }
+    }
+    console.log(o)
+
     res.send(testquiz)
   })
 })

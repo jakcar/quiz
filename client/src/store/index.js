@@ -8,8 +8,7 @@ export default new Vuex.Store({
   state: {
     quiz: [],
     questions: [],
-    testquiz: [],
-    newQuiz: []
+    testquiz: []
   },
   mutations: {
 

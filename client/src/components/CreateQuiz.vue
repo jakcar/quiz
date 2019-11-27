@@ -50,13 +50,6 @@ export default {
   },
 
   methods: {
-    // sendQuiz() {
-    //   // eslint-disable-next-line no-console
-    //   console.log(this.questions)
-    //   // eslint-disable-next-line no-console
-    //   console.log(this.quizName)
-    //   // eslint-disable-next-line no-console
-    // },
     addQuestion() {
       this.questions.push({})
     }

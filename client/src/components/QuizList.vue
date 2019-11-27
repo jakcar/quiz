@@ -1,6 +1,8 @@
 <template>
   <div>
-    {{$store.state.testquiz}}
+    <div v-for="names in $store.state.quiznames" :key="names.id">
+      {{names}}
+    </div>
     <!-- <div v-for="quiz in $store.state.quiz" :key="quiz.ID">{{quiz.name}}{{quiz.ID}}</div>
     <div v-for="question in $store.state.questions" :key="question.question">
       <ul></ul>
@@ -10,7 +12,12 @@
 
 <script>
 export default {
-  name: "QuizList"
+  name: "QuizList",
+  data() {
+    return {
+
+    }
+  }
 }
 </script>
 

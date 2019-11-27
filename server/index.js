@@ -33,12 +33,6 @@ app.post('/', (req, res) => {
     })
 })
 
-// app.get('/testquiz', (req, res) => {
-//   database.all('SELECT * FROM testquiz INNER JOIN testquestions on testquestions.group_id = testquiz.group_id').then(testquiz => {
-//     res.send(testquiz)
-//   })
-// })
-
 app.get('/testquiz', (req, res) => {
   database.all('SELECT * FROM testquiz INNER JOIN testquestions on testquestions.group_id = testquiz.group_id').then(testquiz => {
     const o = {}
@@ -47,13 +41,15 @@ app.get('/testquiz', (req, res) => {
         o[testquiz[n].quizname] = 1
         const test = []
         o[testquiz[n].quizname] = test
+        n--
       } else {
-        o[testquiz[n].quizname].push({ apa: testquiz[n].question })
+        o[testquiz[n].quizname].push({ question: testquiz[n].question, a1: testquiz[n].a1, a2: testquiz[n].a2, a3: testquiz[n].a3, a4: testquiz[n].a4, rightanswer: testquiz[n].rightanswer })
       }
     }
+    console.log(Object.entries(o))
     console.log(o)
 
-    res.send(testquiz)
+    res.send(o)
   })
 })
 

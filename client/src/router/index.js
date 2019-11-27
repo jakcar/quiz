@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Create from '../views/Create.vue'
 import Quizzez from '../views/Quizzez.vue'
+import Quizview from '../views/Quizview.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [{
     path: '/quizzez',
     name: 'quizzez',
     component: Quizzez
+  },
+  {
+    path: '/quiz',
+    name: 'quiz',
+    component: Quizview
   }
 ]
 

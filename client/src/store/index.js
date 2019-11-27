@@ -8,16 +8,18 @@ export default new Vuex.Store({
   state: {
     quiz: [],
     questions: [],
-    testquiz: []
+    testquiz: [],
+    quiznames: null,
+    quizname: 'Tre frågor'
   },
   mutations: {
-
   },
   actions: {
     fetchTestquiz() {
       axios.get('http://localhost:3000/testquiz')
         .then((response) => {
           this.state.testquiz = response.data
+          this.state.quiznames = Object.keys(response.data)
         })
     },
     postQuiz(context, payload) {

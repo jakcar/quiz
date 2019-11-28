@@ -10,9 +10,14 @@ export default new Vuex.Store({
     questions: [],
     testquiz: [],
     quiznames: null,
-    quizname: 'Tre frågor'
+    quizname: null,
+    points: 0
   },
   mutations: {
+    setQuizName(state, names) {
+      state.quizname = names
+      console.log(state.quizname)
+    }
   },
   actions: {
     fetchTestquiz() {
@@ -27,11 +32,9 @@ export default new Vuex.Store({
           payload
         )
         .then((response) => {
-          // eslint-disable-next-line no-console
           console.log(response)
         })
         .catch((error) => {
-          // eslint-disable-next-line no-console
           console.log(error)
         })
     }

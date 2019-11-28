@@ -1,12 +1,8 @@
 <template>
   <div>
     <div v-for="names in $store.state.quiznames" :key="names.id">
-      {{names}}
+      <p class="quizlist" :value="names" v-on:click="getQuiz(names)">{{names}}</p>
     </div>
-    <!-- <div v-for="quiz in $store.state.quiz" :key="quiz.ID">{{quiz.name}}{{quiz.ID}}</div>
-    <div v-for="question in $store.state.questions" :key="question.question">
-      <ul></ul>
-    </div>-->
   </div>
 </template>
 
@@ -14,12 +10,24 @@
 export default {
   name: "QuizList",
   data() {
-    return {
-
+    return {}
+  },
+  methods: {
+    getQuiz(names) {
+      console.log(names)
+      this.$store.commit("setQuizName", names)
+      this.$router.push("/quiz")
     }
   }
 }
+
+//path parameter
 </script>
 
 <style scoped>
+.quizlist:hover {
+  cursor: pointer;
+}
 </style>
+
+

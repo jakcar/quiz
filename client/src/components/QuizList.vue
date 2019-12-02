@@ -26,6 +26,14 @@ export default {
 .quizlist {
   list-style-type: none;
 }
+
+a:visited, a {
+  color: #000;
+}
+
+a:hover {
+  color: darkgrey;
+}
 </style>
 
 

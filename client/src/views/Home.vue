@@ -18,17 +18,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  #nav {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 200px;
-  }
-
-  button {
-    width: 200px;
-    margin-bottom: 5px;
-  }
+<style>
 
 </style>

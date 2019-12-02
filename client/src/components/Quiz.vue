@@ -33,7 +33,10 @@
     <div v-else>
       <h1>Your score:</h1>
       <h2> {{points}} / {{$store.state.testquiz[$store.state.quizname].length}} correct answers</h2>
+    <div id="nav">
+      <router-link to="/" class="largebtn btn-green">Ok</router-link>
     </div>
+  </div>
   </div>
 </template>
 

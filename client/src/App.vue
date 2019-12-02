@@ -45,6 +45,8 @@
  border-radius:3px;
  font-family: 'Neucha';
  font-size:1.2em;
+ border: 0;
+ margin-right: 5px;
 }
 
 .answerbtn {
@@ -54,6 +56,8 @@
  border-radius:3px;
  font-family: 'Open Sans';
  font-size:1em;
+ border: 0;
+ margin-right: 5px;
 }
 
 .btn-green {
@@ -85,6 +89,12 @@ a {
   text-decoration: none;
 }
 
+  #nav {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 200px;
+  }
 
 </style>
 

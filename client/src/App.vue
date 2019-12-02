@@ -82,7 +82,8 @@
 
 h1 {
   font-family: 'Neucha';
-  font-size:4em;
+  font-size: 4em;
+  margin: 40px 0px 15px 0px;
 }
 
 a {

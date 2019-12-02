@@ -1,28 +1,29 @@
 <template>
   <div class="wrapper">
-    <form v-on:submit.prevent="$store.dispatch('postQuiz', {quizname, questions})">
-      Namn:
-      <br />
-      <input v-model="quizname" required />
-      <div class="questions" v-for="(question, index) in questions" :key="question.index">
-        <div class="questions">
-          Fråga:
-          <input v-model="questions[index].question" required />
-          Svar 1:
-          <input v-model="questions[index].a1" required />
-          Svar 2:
-          <input v-model="questions[index].a2" required />
-          Svar 3:
-          <input v-model="questions[index].a3" required />
-          Svar 4:
-          <input v-model="questions[index].a4" required />
-          Rätt svar:
-          <input v-model="questions[index].rightanswer" required />
-        </div>
-      </div>
+    <form v-on:submit.prevent="$store.dispatch('postQuiz', {quizname, questions}), $router.push('/quizzez')">
+      <h4>Quiz name:</h4>
+      <input class="text" v-model="quizname" required />
+      <div v-for="(question, index) in questions" :key="index">
+          <h4>Question {{index + 1}}:</h4>
+          <input class="text"  v-model="questions[index].question" required />
+          <h5>First answer:</h5>
+          <input class="text" v-model="questions[index].a1" /> <br>
+          <input class="text" v-if="questions[index].a1" type="radio" id="one" v-model="questions[index].rightanswer" v-bind:value="questions[index].a1" />
+         <h5>Second answer:</h5>
+          <input class="text" v-model="questions[index].a2" required /> <br>
+          <input class="text" v-if="questions[index].a2" type="radio" id="two" v-model="questions[index].rightanswer" v-bind:value="questions[index].a2" />
+         <h5>Third answer:</h5>
+          <input class="text" v-model="questions[index].a3" required /> <br>
+          <input class="text" v-if="questions[index].a3" type="radio" id="three" v-model="questions[index].rightanswer" v-bind:value="questions[index].a3" />
+         <h5>Fourth answer:</h5>
+          <input class="text" v-model="questions[index].a4" required /> <br>
+          <input class="text" v-if="questions[index].a4" type="radio" id="four" v-model="questions[index].rightanswer" v-bind:value="questions[index].a4" /> <br>
+          Please mark the correct answer.<br> The correct answer is: <br>
+          {{questions[index].rightanswer}}<br>
+      </div> <br>
       <div class="form-buttons">
-        <input type="button" value="Ny fråga" v-on:click="addQuestion" />
-        <input type="submit" value="Skicka" />
+        <input class="smallbtn btn-blue" type="button" value="Add question" v-on:click="addQuestion" />
+        <input class="smallbtn btn-green" type="submit" value="Submit quiz" />
       </div>
     </form>
   </div>
@@ -33,7 +34,7 @@ export default {
   name: "CreateQuiz",
   data() {
     return {
-      quizname: "",
+      quizname: '',
       questions: [
         {
           question: "",
@@ -49,24 +50,18 @@ export default {
 
   methods: {
     addQuestion() {
+      this.i++
       this.questions.push({})
     }
   }
 }
 
-//Gör rightanswer till radioknappar
 </script>
 
 <style scoped>
-.questions {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  margin-top: 20px;
-  text-align: left;
-}
 
-input {
+.text {
   margin-bottom: 10px;
+  width: 200px;
 }
 </style>

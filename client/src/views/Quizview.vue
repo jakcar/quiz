@@ -1,6 +1,5 @@
 <template>
   <div class="quizview">
-    <h1>{{$store.state.quizname}}</h1>
     <Quiz />
   </div>
 </template>
@@ -12,6 +11,14 @@ export default {
   name: "Quizview",
   components: {
     Quiz
+  },
+  data() {
+    return {
+      name: this.$route.params.name
+    }
+  },
+  created() {
+    this.$store.commit("setQuizName", this.name)
   }
 }
 </script>

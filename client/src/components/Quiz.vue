@@ -1,36 +1,38 @@
 <template>
-  <div>
+  <div class="wrapper"> 
     <div v-if="counter < $store.state.testquiz[$store.state.quizname].length">
-      {{$store.state.testquiz[$store.state.quizname][counter].rightanswer}}
-      <h2>Fråga {{counter+1}} av {{$store.state.testquiz[$store.state.quizname].length}}</h2>
-      <div>
-        <div>{{$store.state.testquiz[$store.state.quizname][counter].question}}</div>
-        <div>
+        <p>{{$store.state.quizname}}, Question {{counter+1}} of {{$store.state.testquiz[$store.state.quizname].length}}</p>
+        <div class="question">{{$store.state.testquiz[$store.state.quizname][counter].question}}</div>
+        <div class="answers">
           <input
             type="button"
+            class="answerbtn btn-darkgreen"
             :value="$store.state.testquiz[$store.state.quizname][counter].a1"
             v-on:click="nextQuestion"
           />
           <input
             type="button"
+            class="answerbtn btn-darkgreen"
             :value="$store.state.testquiz[$store.state.quizname][counter].a2"
             v-on:click="nextQuestion"
           />
           <input
             type="button"
+            class="answerbtn btn-darkgreen"
             :value="$store.state.testquiz[$store.state.quizname][counter].a3"
             v-on:click="nextQuestion"
           />
           <input
             type="button"
+            class="answerbtn btn-darkgreen"
             :value="$store.state.testquiz[$store.state.quizname][counter].a4"
             v-on:click="nextQuestion"
           />
-        </div>
       </div>
     </div>
     <div v-else>
-      <h2>Du fick {{points}} av {{$store.state.testquiz[$store.state.quizname].length}} rätt!</h2>
+      <h1>Your score:</h1>
+      <h2> {{points}} / {{$store.state.testquiz[$store.state.quizname].length}} correct answers</h2>
     </div>
   </div>
 </template>
@@ -41,7 +43,7 @@ export default {
   data() {
     return {
       counter: 0,
-      points: 0
+      points: 0,
     }
   },
   methods: {
@@ -63,6 +65,14 @@ export default {
 <style scoped>
 .answers {
   margin-bottom: 15px;
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.wrapper {
+  margin-top: 50px;
 }
 </style>

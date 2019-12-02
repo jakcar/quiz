@@ -23,7 +23,7 @@ const routes = [{
     component: Quizzez
   },
   {
-    path: '/quiz',
+    path: '/quiz/:name',
     name: 'quiz',
     component: Quizview
   }

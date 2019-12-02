@@ -16,7 +16,6 @@ export default new Vuex.Store({
   mutations: {
     setQuizName(state, names) {
       state.quizname = names
-      console.log(state.quizname)
     }
   },
   actions: {
@@ -24,7 +23,7 @@ export default new Vuex.Store({
       axios.get('http://localhost:3000/testquiz')
         .then((response) => {
           this.state.testquiz = response.data
-          this.state.quiznames = Object.keys(response.data)
+          this.state.quiznames = Object.keys(response.data).reverse()
         })
     },
     postQuiz(context, payload) {

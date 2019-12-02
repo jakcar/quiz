@@ -1,6 +1,6 @@
 <template>
   <div class="create">
-    <h1>This is the create page</h1>
+    <h1>Create a quiz</h1>
     <CreateQuiz />
   </div>
 </template>

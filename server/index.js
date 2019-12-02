@@ -14,8 +14,6 @@ sqlite.open('test.sqlite').then(database_ => {
 })
 
 app.post('/', (req, res) => {
-  console.log(req.body)
-  // res.send(req.body)
   database.run('INSERT INTO testquiz (quizname) VALUES (?)', [req.body.quizname])
     .then(statement => {
       const promises = []
@@ -46,37 +44,8 @@ app.get('/testquiz', (req, res) => {
         o[testquiz[n].quizname].push({ question: testquiz[n].question, a1: testquiz[n].a1, a2: testquiz[n].a2, a3: testquiz[n].a3, a4: testquiz[n].a4, rightanswer: testquiz[n].rightanswer })
       }
     }
-    console.log(Object.entries(o))
-    console.log(o)
-
     res.send(o)
   })
 })
 
 app.listen(3000)
-
-
-
-// {
-//   "name": "quizname",
-//   "questions": [
-//     { "question": "Testfråga5?", "a1": "A", "a2": "B", "a3": "C", "a4": "D", "rightanswer": "a1" },
-//     { "question": "Testfråga5?", "a1": "A", "a2": "B", "a3": "C", "a4": "D", "rightanswer": "a1" }
-//   ]
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//for
-//MEGATHEN
-//promise.all

@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <h1>Quizd!</h1>
     <div id="nav">
-      <button><router-link to="/">Home</router-link></button>
-      <button><router-link to="/create">Create quiz</router-link></button>
-      <button><router-link to="/quizzez">All quizzez</router-link></button>
+      <router-link to="/create" class="largebtn btn-blue">Create quiz</router-link>
+      <router-link to="/quizzez" class="largebtn btn-blue">All quizzez</router-link>
+      <router-link to="/quizzez" class="largebtn btn-blue">Random quiz</router-link>
     </div>
   </div>
 </template>
@@ -22,8 +22,13 @@ export default {
   #nav {
     display: flex;
     flex-direction: column;
-    width: 200px;
     margin: auto;
+    width: 200px;
+  }
+
+  button {
+    width: 200px;
+    margin-bottom: 5px;
   }
 
 </style>

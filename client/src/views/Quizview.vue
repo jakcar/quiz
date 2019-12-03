@@ -1,8 +1,10 @@
 <template>
   <div class="quizview">
-    <Quiz />
+    <p v-if="$store.state.quiznames === null">Loading...</p>
+    <Quiz v-else />
   </div>
 </template>
+
 
 <script>
 import Quiz from "@/components/Quiz.vue"
@@ -18,6 +20,7 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("fetchTestquiz")
     this.$store.commit("setQuizName", this.name)
   }
 }

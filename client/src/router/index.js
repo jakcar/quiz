@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Create from '../views/Create.vue'
 import Quizzez from '../views/Quizzez.vue'
 import Quizview from '../views/Quizview.vue'
+import QuizAdded from '../views/QuizAdded.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [{
     path: '/quizzez',
     name: 'quizzez',
     component: Quizzez
+  },
+  {
+    path: '/quizadded',
+    name: 'quizadded',
+    component: QuizAdded
   },
   {
     path: '/quiz/:name',

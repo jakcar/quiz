@@ -12,7 +12,8 @@
         <h5>Question {{ index + 1 }}:</h5>
         <input class="text" v-model="questions[index].question" required />
         <h5>Answer A:</h5>
-        <input class="text" v-model="questions[index].a1" /> <br />
+        <input class="text" v-model="questions[index].a1" />
+        <br />
         <input
           class="text"
           v-if="questions[index].a1"
@@ -22,7 +23,8 @@
           v-bind:value="questions[index].a1"
         />
         <h5>Answer B:</h5>
-        <input class="text" v-model="questions[index].a2" required /> <br />
+        <input class="text" v-model="questions[index].a2" required />
+        <br />
         <input
           class="text"
           v-if="questions[index].a2"
@@ -32,7 +34,8 @@
           v-bind:value="questions[index].a2"
         />
         <h5>Answer C:</h5>
-        <input class="text" v-model="questions[index].a3" required /> <br />
+        <input class="text" v-model="questions[index].a3" required />
+        <br />
         <input
           class="text"
           v-if="questions[index].a3"
@@ -42,7 +45,8 @@
           v-bind:value="questions[index].a3"
         />
         <h5>Answer D:</h5>
-        <input class="text" v-model="questions[index].a4" required /> <br />
+        <input class="text" v-model="questions[index].a4" required />
+        <br />
         <input
           class="text"
           v-if="questions[index].a4"
@@ -51,10 +55,11 @@
           v-model="questions[index].rightanswer"
           v-bind:value="questions[index].a4"
         />
+        <br />Please mark the correct answer.
+        <br />The correct answer is:
         <br />
-        Please mark the correct answer.<br />
-        The correct answer is: <br />
-        {{ questions[index].rightanswer }}<br />
+        {{ questions[index].rightanswer }}
+        <br />
       </div>
       <br />
       <div>

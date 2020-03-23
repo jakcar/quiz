@@ -7,7 +7,7 @@
 
 
 <script>
-import Quiz from "@/components/Quiz.vue"
+import Quiz from "@/components/Quiz.vue";
 
 export default {
   name: "Quizview",
@@ -17,11 +17,11 @@ export default {
   data() {
     return {
       name: this.$route.params.name
-    }
+    };
   },
   created() {
-    this.$store.dispatch("fetchTestquiz")
-    this.$store.commit("setQuizName", this.name)
+    this.$store.dispatch("fetchTestquiz");
+    this.$store.commit("setQuizName", this.name);
   }
-}
+};
 </script>

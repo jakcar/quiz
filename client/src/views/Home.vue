@@ -17,15 +17,15 @@ export default {
     randomizeName() {
       const randomQuizNumber = Math.floor(
         Math.random() * this.$store.state.quiznames.length
-      )
-      const randomQuizName = this.$store.state.quiznames[randomQuizNumber]
-      this.$router.push("/quiz/" + randomQuizName)
+      );
+      const randomQuizName = this.$store.state.quiznames[randomQuizNumber];
+      this.$router.push("/quiz/" + randomQuizName);
     }
   },
   created() {
-    this.$store.dispatch("fetchTestquiz")
+    this.$store.dispatch("fetchTestquiz");
   }
-}
+};
 </script>
 
 <style>

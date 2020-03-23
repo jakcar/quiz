@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import QuizList from "@/components/QuizList.vue"
+import QuizList from "@/components/QuizList.vue";
 
 export default {
   name: "Quizzez",
   components: {
     QuizList
   }
-}
+};
 </script>

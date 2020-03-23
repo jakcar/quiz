@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul class="quizlist" v-for="names in $store.state.quiznames" :key="names.id">
-      <li><router-link v-bind:to ="'/quiz/' + names">{{names}}</router-link></li>
+      <li>
+        <router-link v-bind:to="'/quiz/' + names">{{names}}</router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -10,12 +12,12 @@
 export default {
   name: "QuizList",
   data() {
-    return {}
+    return {};
   },
-    created() {
-    this.$store.dispatch("fetchTestquiz")
+  created() {
+    this.$store.dispatch("fetchTestquiz");
   }
-}
+};
 </script>
 
 <style scoped>
@@ -27,7 +29,8 @@ export default {
   list-style-type: none;
 }
 
-a:visited, a {
+a:visited,
+a {
   color: #000;
 }
 

@@ -8,7 +8,6 @@ export default new Vuex.Store({
   state: {
     quiz: [],
     questions: [],
-    testquiz: [],
     quiznames: null,
     quizname: null,
     points: 0
@@ -20,9 +19,9 @@ export default new Vuex.Store({
   },
   actions: {
     fetchTestquiz() {
-      axios.get('http://localhost:3000/testquiz')
+      axios.get('http://localhost:3000/quiz')
         .then((response) => {
-          this.state.testquiz = response.data
+          this.state.quiz = response.data
           this.state.quiznames = Object.keys(response.data).reverse()
         })
     },

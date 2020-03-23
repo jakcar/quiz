@@ -1,38 +1,38 @@
 <template>
   <div class="wrapper">
-    <div v-if="counter < $store.state.testquiz[$store.state.quizname].length">
-      <p>{{$store.state.quizname}}, Question {{counter+1}} of {{$store.state.testquiz[$store.state.quizname].length}}</p>
-      <div class="question">{{$store.state.testquiz[$store.state.quizname][counter].question}}</div>
+    <div v-if="counter < $store.state.quiz[$store.state.quizname].length">
+      <p>{{$store.state.quizname}}, Question {{counter+1}} of {{$store.state.quiz[$store.state.quizname].length}}</p>
+      <div class="question">{{$store.state.quiz[$store.state.quizname][counter].question}}</div>
       <div class="answers">
         <input
           type="button"
           class="answerbtn btn-darkgreen"
-          :value="$store.state.testquiz[$store.state.quizname][counter].a1"
+          :value="$store.state.quiz[$store.state.quizname][counter].a1"
           v-on:click="nextQuestion"
         />
         <input
           type="button"
           class="answerbtn btn-darkgreen"
-          :value="$store.state.testquiz[$store.state.quizname][counter].a2"
+          :value="$store.state.quiz[$store.state.quizname][counter].a2"
           v-on:click="nextQuestion"
         />
         <input
           type="button"
           class="answerbtn btn-darkgreen"
-          :value="$store.state.testquiz[$store.state.quizname][counter].a3"
+          :value="$store.state.quiz[$store.state.quizname][counter].a3"
           v-on:click="nextQuestion"
         />
         <input
           type="button"
           class="answerbtn btn-darkgreen"
-          :value="$store.state.testquiz[$store.state.quizname][counter].a4"
+          :value="$store.state.quiz[$store.state.quizname][counter].a4"
           v-on:click="nextQuestion"
         />
       </div>
     </div>
     <div v-else>
       <h1>Your score:</h1>
-      <h2>{{points}} / {{$store.state.testquiz[$store.state.quizname].length}} correct answers</h2>
+      <h2>{{points}} / {{$store.state.quiz[$store.state.quizname].length}} correct answers</h2>
       <div id="nav">
         <router-link to="/" class="largebtn btn-green">Ok</router-link>
       </div>
@@ -47,21 +47,21 @@ export default {
     return {
       counter: 0,
       points: 0
-    }
+    };
   },
   methods: {
     nextQuestion(e) {
-      const answerValue = e.target.value
-      const correct = this.$store.state.testquiz[this.$store.state.quizname][
+      const answerValue = e.target.value;
+      const correct = this.$store.state.quiz[this.$store.state.quizname][
         this.counter
-      ].rightanswer
+      ].rightanswer;
       if (answerValue === correct) {
-        this.points++
+        this.points++;
       }
-      this.counter++
+      this.counter++;
     }
   }
-}
+};
 </script>
 
 <style scoped>

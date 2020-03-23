@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import CreateQuiz from "@/components/CreateQuiz.vue"
+import CreateQuiz from "@/components/CreateQuiz.vue";
 export default {
   name: "Create",
   components: {
     CreateQuiz
   }
-}
+};
 </script>
